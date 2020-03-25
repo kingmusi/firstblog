@@ -107,7 +107,6 @@ export default {
                     this.comments = comments
                 }
             })
-            this.comments = comments
         }else{
             this.comments = []
         }
