@@ -105,7 +105,7 @@ export default {
                 const {
                     status,
                     data: { code, msg }
-                } = await this.$axios.post("http://47.104.235.245/user/update", {
+                } = await this.$axios.post("/user/update", {
                     sex: that.ruleForm.sex,
                     profile: that.ruleForm.profile,
                     img: that.imgpath
@@ -137,7 +137,7 @@ export default {
         const {
             status,
             data: { code, list, msg }
-        } = await this.$axios.post("http://47.104.235.245/user/getUsermsgs", {
+        } = await this.$axios.post("/user/getUsermsgs", {
             username: ''
         });
         if (status === 200 && code === 0) {

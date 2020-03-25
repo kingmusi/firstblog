@@ -70,7 +70,7 @@ export default {
     methods: {
         async login(){
             const that = this
-            const { status, data: {code, msg} } = await this.$axios.post('http://47.104.235.245/user/login', {
+            const { status, data: {code, msg} } = await this.$axios.post('/user/login', {
                 username: that.ruleForm.username,
                 password: cryp.MD5(that.ruleForm.password).toString()
             })

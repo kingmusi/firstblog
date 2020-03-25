@@ -39,7 +39,7 @@ export default {
           const bigType = this.$route.query.bigType || ''
           const smallType = this.$route.query.smallType || ''
 
-          const {status, data:{ code, result, msg } } = await this.$axios.get('http://47.104.235.245/blog/getBloglist', {
+          const {status, data:{ code, result, msg } } = await this.$axios.get('/blog/getBloglist', {
             params:{
               bigType,
               smallType,

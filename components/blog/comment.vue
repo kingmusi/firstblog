@@ -66,7 +66,7 @@ export default {
             const that = this
             const articleid = this.$route.query.id
 
-            const {status, data:{code, msg}} = await this.$axios.post('http://47.104.235.245/comment/setChildComment', {
+            const {status, data:{code, msg}} = await this.$axios.post('/comment/setChildComment', {
                 fromid,
                 comment: that.textarea,
                 articleid: that.$route.query.id
@@ -79,7 +79,7 @@ export default {
     async mounted(){
         const that = this
         const articleid = this.$route.query.id
-        const {status, data: {code, comments} } = await this.$axios.post('http://47.104.235.245/comment/getComment', {
+        const {status, data: {code, comments} } = await this.$axios.post('/comment/getComment', {
             articleid,
             fromid:that.fromid
         })
@@ -96,7 +96,7 @@ export default {
                 s = time.getSeconds()
                 item.createtime = `${year}-${month}-${day}  ${h}:${m}:${s}`
 
-                const { status, data: {code, list} } = await that.$axios.post('http://47.104.235.245/user/getUsermsgs', {
+                const { status, data: {code, list} } = await that.$axios.post('/user/getUsermsgs', {
                     username: item.user
                 })
                 if(status === 200 && code === 0){
@@ -110,8 +110,6 @@ export default {
         }else{
             this.comments = []
         }
-
-        
     }
 }
 </script>

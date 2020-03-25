@@ -35,7 +35,7 @@ export default {
     },
     async mounted(){
       const that = this
-      const {status, data:{code, list, msg}} = await this.$axios.post('http://47.104.235.245/user/getUsermsgs', {
+      const {status, data:{code, list, msg}} = await this.$axios.post('/user/getUsermsgs', {
         username: that.list.author
       })
       if(status === 200 && code === 0){

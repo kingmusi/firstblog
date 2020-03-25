@@ -66,7 +66,7 @@ export default {
     },
     async mounted(){
         const that = this
-        const { status, data: {code, username} } = await this.$axios.get('http://47.104.235.245/user/getUser')
+        const { status, data: {code, username} } = await this.$axios.get('/user/getUser')
         if(status === 200 && code === 0){
             this.navText = `欢迎呀，${username}`
             this.user = username
@@ -74,7 +74,7 @@ export default {
             this.navText = `死去登录吧好不好`
         }
 
-        const { status:status1, data: {code:code1, typeList}} = await this.$axios.get('http://47.104.235.245/blog/getType')
+        const { status:status1, data: {code:code1, typeList}} = await this.$axios.get('/blog/getType')
         if(status1 === 200 && code1 === 0){
             this.typeList = typeList
         }

@@ -139,7 +139,7 @@ export default {
                 const {
                     status,
                     data: { code, msg }
-                } = await this.$axios.post("http://47.104.235.245/blog/update", {
+                } = await this.$axios.post("/blog/update", {
                     id,
                     title: that.title,
                     bigType: that.typeResult[0],
@@ -172,7 +172,7 @@ export default {
         async getContent(){
             const that = this
             const id = this.$route.query.id
-            const { status, data:{code, title, content, img, bigType, smallType, msg}} = await this.$axios.post('http://47.104.235.245/blog/getBlog', {
+            const { status, data:{code, title, content, img, bigType, smallType, msg}} = await this.$axios.post('/blog/getBlog', {
                 id
             })
 
@@ -192,7 +192,7 @@ export default {
     },
     async asyncData(ctx){
         // 类型列表通过 ssr 的方式渲染，体验更好
-        const {status, data: {code, typeList}} = await ctx.$axios.get('http://47.104.235.245/blog/getType')
+        const {status, data: {code, typeList}} = await ctx.$axios.get('/blog/getType')
 
         if(status === 200 && code === 0){
             return {

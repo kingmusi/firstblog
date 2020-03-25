@@ -53,7 +53,7 @@ export default {
         input: _.debounce(async function() {
             const that = this;
             this.list = [];
-            const { status, data: { list,code,msg } } = await that.$axios.get("http://47.104.235.245/blog/selectBlog", {
+            const { status, data: { list,code,msg } } = await that.$axios.get("/blog/selectBlog", {
                 params: {
                     search: that.search
                 }

@@ -43,7 +43,7 @@ export default {
     },
     async mounted(){
         const that = this
-        const {status, data:{code, result, msg}} = await this.$axios.post('http://47.104.235.245/blog/getOtherBlog', {
+        const {status, data:{code, result, msg}} = await this.$axios.post('/blog/getOtherBlog', {
             author:that.$route.query.author
         })
 

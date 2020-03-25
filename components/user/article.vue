@@ -47,7 +47,7 @@ export default {
     },
     async mounted(){
         const that = this
-        const {status, data:{code, result, msg}} = await this.$axios.get('http://47.104.235.245/blog/getUserBlog')
+        const {status, data:{code, result, msg}} = await this.$axios.get('/blog/getUserBlog')
 
         if(status === 200 && code === 0){
             let time,year,month,day,h,m,s
