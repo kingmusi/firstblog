@@ -8,7 +8,9 @@
             >
                 <dd>
                     <el-row class="item-father-container">
-                        <el-col :span="5" class="item-left"><img src="/uploads/1575032192679.jpg"></el-col>
+                        <el-col :span="5" class="item-left">
+                            <div :style="{backgroundImage:'url(' + item.imgpath + ')', backgroundRepeat:'no-repeat', backgroundPosition:'center center', backgroundSize: 'contain'}"></div>
+                        </el-col>
                         <el-col :span="18" :offset="1" class="item-right">
                             <div class="item-top">
                                 <div class="item-user"><a href="#">{{item.user}}</a></div>
@@ -84,7 +86,7 @@ export default {
 
         if(status === 200 && code === 0){
             let time,year,month,day,h,m,s
-            comments.forEach(item => {
+            comments.forEach(async item => {
                 time = new Date(parseInt(item.createtime))
                 year = time.getFullYear()
                 month = time.getMonth() + 1
@@ -93,8 +95,18 @@ export default {
                 m = time.getMinutes()
                 s = time.getSeconds()
                 item.createtime = `${year}-${month}-${day}  ${h}:${m}:${s}`
+
+                const { status, data: {code, list} } = await that.$axios.post('/user/getUsermsgs', {
+                    username: item.user
+                })
+                if(status === 200 && code === 0){
+                    item.imgpath = list.img
+                    this.comments = comments
+                }else{
+                    item.imgpath = '/default.jpg'
+                    this.comments = comments
+                }
             })
-            this.comments = comments
         }else{
             this.comments = []
         }
@@ -131,13 +143,15 @@ export default {
 }
 
 .item-left{
+    display:flex;
+    justify-content: center;
+    align-content: center;
     border-right:1px solid #ccc;
 }
 
-.item-container img{
-    width:100%;
-    padding:5px;
-    box-sizing: border-box;
+.item-left div{
+    width:90%;
+    padding-bottom:90%;
     border-radius:50%;
 }
 
