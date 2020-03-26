@@ -233,4 +233,23 @@ router.post('/getOtherBlog', async (ctx, next) => {
     }
 })
 
+router.get('/getCarousel', async (ctx, next) => {
+    let sql = `select id, title, img from blogs where img!='' order by createtime desc limit 0, 3;`
+
+    const result = await exec(sql)
+    if(result.length){
+        ctx.body = {
+            code: 0,
+            list: result,
+            msg: ''
+        }
+    }else{
+        ctx.body = {
+            code: -1,
+            list: [],
+            msg: '没有数据了'
+        }
+    }
+})
+
 export default router
