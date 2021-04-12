@@ -38,7 +38,8 @@ let dbs = {
     user: 'root',
     password: '852456',
     port: '3306',
-    database: 'myblog'
+    database: 'myblog',
+    useConnectionPooling: true
 }
 
 let redis = {

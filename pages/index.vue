@@ -1,9 +1,9 @@
 <template>
     <div class="container1">
 
-      <ul 
-        class="infinite-list container2" 
-        v-infinite-scroll="load" 
+      <ul
+        class="infinite-list container2"
+        v-infinite-scroll="load"
         :infinite-scroll-delay="300"
         style="overflow:auto">
           <li v-for="(item,index) of list" :key="index" class="infinite-list-item list-container">
@@ -12,6 +12,8 @@
       </ul>
       <div class="loading" v-if="loading"><p class="el-icon-loading"></p></div>
       <p v-if="noMore" class="nomore">没有更多了</p>
+
+      <a href="http://www.beian.miit.gov.cn/" class="beian">粤ICP备20026741号</a>>
     </div>
 </template>
 
@@ -39,7 +41,7 @@ export default {
           const bigType = this.$route.query.bigType || ''
           const smallType = this.$route.query.smallType || ''
 
-          const {status, data:{ code, result, msg } } = await this.$axios.get('/blog/getBloglist', {
+          const {status, data:{ code, result, msg } } = await this.$axios.get('http://kingmusi.cn/blog/getBloglist', {
             params:{
               bigType,
               smallType,
@@ -64,7 +66,7 @@ export default {
             })
 
             this.list = result
-            this.countstart += this.count 
+            this.countstart += this.count
           }else{
             this.noMore = true
           }
@@ -97,5 +99,10 @@ export default {
   box-shadow: 0 5px 15px -5px rgba(0,0,0,.5);
   border-radius: 10px;
   box-sizing: border-box;
+}
+
+.beian{
+  margin-top:50px;
+  border-top:1px solid #999;
 }
 </style>

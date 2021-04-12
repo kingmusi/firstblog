@@ -127,7 +127,7 @@ export default {
                 const {
                     status,
                     data: { code, msg, id }
-                } = await this.$axios.post("/blog/create", {
+                } = await this.$axios.post("http://kingmusi.cn/blog/create", {
                     title: that.title,
                     bigType: that.typeResult[0],
                     smallType: that.typeResult[1],
@@ -162,7 +162,7 @@ export default {
     },
     async asyncData(ctx){
         // 类型列表通过 ssr 的方式渲染，体验更好
-        const {status, data: {code, typeList}} = await ctx.$axios.get('/blog/getType')
+        const {status, data: {code, typeList}} = await ctx.$axios.get('http://kingmusi.cn/blog/getType')
 
         if(status === 200 && code === 0){
             return {
@@ -170,7 +170,7 @@ export default {
             }
         }
 
-            
+
     }
 };
 </script>

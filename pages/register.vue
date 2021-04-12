@@ -89,7 +89,7 @@ export default {
             const that = this
             this.$refs['ruleForm'].validate((valid) => {
                 if(valid){
-                    that.$axios.post('/user/register', {
+                    that.$axios.post('http://kingmusi.cn/user/register', {
                         username: that.ruleForm.name,
                         password: cryp.MD5(that.ruleForm.password).toString()
                     }).then( ({status, data: {code, msg}}) => {
@@ -110,7 +110,7 @@ export default {
                         }
                     })
 
-                    that.$axios.post('/user/default', {
+                    that.$axios.post('http://kingmusi.cn/user/default', {
                         username: that.ruleForm.name
                     })
                 }else{

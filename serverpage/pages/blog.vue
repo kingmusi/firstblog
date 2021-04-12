@@ -62,7 +62,7 @@ export default {
                 bigType,
                 smallType
             }
-        } = await ctx.$axios.post("http://47.104.235.245/blog/getBlog", {
+        } = await ctx.$axios.post("http://kingmusi.cn/blog/getBlog", {
             id
         });
 
@@ -102,7 +102,7 @@ export default {
         const {
             status,
             data: { code, list, msg }
-        } = await this.$axios.post("http://47.104.235.245/user/getUsermsgs", {
+        } = await this.$axios.post("http://kingmusi.cn/user/getUsermsgs", {
             username: that.author
         });
         if (status === 200 && code === 0) {

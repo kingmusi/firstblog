@@ -1,4 +1,4 @@
-const { dbs } = require('./conf.js') 
+const { dbs } = require('./conf.js')
 const mysql = require('mysql')
 
 // 创建连接对象
@@ -14,8 +14,8 @@ function exec(sql) {
             if(err) {
                 reject(err)
                 return
-            } 
-    
+            }
+
             resolve(result)
         })
     })

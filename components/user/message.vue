@@ -105,7 +105,7 @@ export default {
                 const {
                     status,
                     data: { code, msg }
-                } = await this.$axios.post("/user/update", {
+                } = await this.$axios.post("http://kingmusi.cn/user/update", {
                     sex: that.ruleForm.sex,
                     profile: that.ruleForm.profile,
                     img: that.imgpath
@@ -137,7 +137,7 @@ export default {
         const {
             status,
             data: { code, list, msg }
-        } = await this.$axios.post("/user/getUsermsgs", {
+        } = await this.$axios.post("http://kingmusi.cn/user/getUsermsgs", {
             username: ''
         });
         if (status === 200 && code === 0) {

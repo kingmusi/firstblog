@@ -1,9 +1,9 @@
 <template>
     <div class="container1">
 
-      <ul 
-        class="infinite-list container2" 
-        v-infinite-scroll="load" 
+      <ul
+        class="infinite-list container2"
+        v-infinite-scroll="load"
         :infinite-scroll-delay="300"
         style="overflow:auto">
           <li v-for="(item,index) of list" :key="index" class="infinite-list-item list-container">
@@ -39,7 +39,7 @@ export default {
           const bigType = this.$route.query.bigType || ''
           const smallType = this.$route.query.smallType || ''
 
-          const {status, data:{ code, result, msg } } = await this.$axios.get('http://47.104.235.245/blog/getBloglist', {
+          const {status, data:{ code, result, msg } } = await this.$axios.get('http://kingmusi.cn/blog/getBloglist', {
             params:{
               bigType,
               smallType,
@@ -64,7 +64,7 @@ export default {
             })
 
             this.list = result
-            this.countstart += this.count 
+            this.countstart += this.count
           }else{
             this.noMore = true
           }

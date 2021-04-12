@@ -38,7 +38,7 @@ export default {
         const {
             status,
             data: { code, list, msg }
-        } = await this.$axios.post("/user/getUsermsgs", {
+        } = await this.$axios.post("http://kingmusi.cn/user/getUsermsgs", {
             username: that.$route.query.author
         });
         if (status === 200 && code === 0) {

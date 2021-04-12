@@ -1,8 +1,8 @@
 <template>
     <div class="container">
-        <el-input 
-            placeholder="请输入关键字" 
-            prefix-icon="el-icon-search" 
+        <el-input
+            placeholder="请输入关键字"
+            prefix-icon="el-icon-search"
             v-model="search"
             class="input"
             @blur="blur"
@@ -53,7 +53,7 @@ export default {
         input: _.debounce(async function() {
             const that = this;
             this.list = [];
-            const { status, data: { list,code,msg } } = await that.$axios.get("/blog/selectBlog", {
+            const { status, data: { list,code,msg } } = await that.$axios.get("http://kingmusi.cn/blog/selectBlog", {
                 params: {
                     search: that.search
                 }

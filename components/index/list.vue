@@ -3,7 +3,7 @@
         <h3><a :href="`/blog?id=${list.id}`" class="title">{{list.title}}</a></h3>
         <div v-html="list.content" class="content-conrainer"></div>
         <div class="other-container">
-        时间：{{list.createtime}} | 
+        时间：{{list.createtime}} |
         作者:
         <!-- user弹出框 -->
         <el-popover
@@ -17,9 +17,9 @@
           <div class="user-textContainer">
             {{user.profile}}
           </div>
-          <a class="aText" slot="reference" :href="`/otheruser?author=${list.author}`">{{list.author}}</a> 
-        </el-popover> 
-        
+          <a class="aText" slot="reference" :href="`/otheruser?author=${list.author}`">{{list.author}}</a>
+        </el-popover>
+
         | 分类: <a :href="`/?bigType=${list.bigType}`" class="aText">{{list.bigType}}</a> - <a :href="`/?smallType=${list.smallType}`" class="aText">{{list.smallType}}</a>
         </div>
     </div>
@@ -35,7 +35,7 @@ export default {
     },
     async mounted(){
       const that = this
-      const {status, data:{code, list, msg}} = await this.$axios.post('/user/getUsermsgs', {
+      const {status, data:{code, list, msg}} = await this.$axios.post('http://kingmusi.cn/user/getUsermsgs', {
         username: that.list.author
       })
       if(status === 200 && code === 0){

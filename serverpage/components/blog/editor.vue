@@ -65,9 +65,9 @@ export default {
         },
         async submit(){
             const that = this
-            const id = this.$route.query.id 
+            const id = this.$route.query.id
             if(this.editorContent){
-                const {status, data: {code, msg} } = await this.$axios.post('http://47.104.235.245/comment/setComment', {
+                const {status, data: {code, msg} } = await this.$axios.post('http://kingmusi.cn/comment/setComment', {
                     id,
                     comment: that.editorContent,
                     touser: ''

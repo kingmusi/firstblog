@@ -134,12 +134,12 @@ export default {
         async submit() {
             const that = this;
             const id = this.$route.query.id
-            
+
             if (this.title && this.typeResult.length && this.editorContent) {
                 const {
                     status,
                     data: { code, msg }
-                } = await this.$axios.post("/blog/update", {
+                } = await this.$axios.post("http://kingmusi.cn/blog/update", {
                     id,
                     title: that.title,
                     bigType: that.typeResult[0],
@@ -172,7 +172,7 @@ export default {
         async getContent(){
             const that = this
             const id = this.$route.query.id
-            const { status, data:{code, title, content, img, bigType, smallType, msg}} = await this.$axios.post('/blog/getBlog', {
+            const { status, data:{code, title, content, img, bigType, smallType, msg}} = await this.$axios.post('http://kingmusi.cn/blog/getBlog', {
                 id
             })
 
@@ -192,7 +192,7 @@ export default {
     },
     async asyncData(ctx){
         // 类型列表通过 ssr 的方式渲染，体验更好
-        const {status, data: {code, typeList}} = await ctx.$axios.get('/blog/getType')
+        const {status, data: {code, typeList}} = await ctx.$axios.get('http://kingmusi.cn/blog/getType')
 
         if(status === 200 && code === 0){
             return {
@@ -200,7 +200,7 @@ export default {
             }
         }
 
-            
+
     }
 };
 </script>

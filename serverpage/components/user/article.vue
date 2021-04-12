@@ -3,8 +3,8 @@
         <dt>
             <el-input v-model="search" placeholder="搜素文章标题关键词" @input="input"></el-input>
         </dt>
-        <dd 
-            class="item-container" 
+        <dd
+            class="item-container"
             v-for="(item,index) of showlist"
             :key="index"
         >
@@ -47,7 +47,7 @@ export default {
     },
     async mounted(){
         const that = this
-        const {status, data:{code, result, msg}} = await this.$axios.get('http://47.104.235.245/blog/getUserBlog')
+        const {status, data:{code, result, msg}} = await this.$axios.get('http://kingmusi.cn/blog/getUserBlog')
 
         if(status === 200 && code === 0){
             let time,year,month,day,h,m,s

@@ -5,8 +5,8 @@
     </el-row>
     
     <el-row class="content-container">
-      <el-col :span="15"> <nuxt/></el-col>
-      <el-col :span="8" :offset="1"> <rightrow/></el-col>
+      <el-col :span="15" class="box-container"> <nuxt/></el-col>
+      <el-col :span="8" :offset="1" class="rightrow-container"> <rightrow/></el-col>
     </el-row>
   </div>
 </template>
@@ -24,6 +24,16 @@ export default {
 </script>
 
 <style>
+@media screen and (max-width: 750px) {
+  .rightrow-container{
+    display:none;
+  }
+
+  .box-container{
+    width:100%;
+  }
+}
+
 .content-container{
   width:80%;
   margin:0 auto;
